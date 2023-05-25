@@ -1,34 +1,21 @@
 import React,{Fragment, useState} from "react"
-
+import { useRegistro } from "../hooks/useRegistro"
 
 const MyRegistro =()=>{
- 
-   const [hola, sethola ] = useState({
-        nombre :'',
-        apellidos:'',
-        edad:'',
-        registroId:''
-    
-   })
-
-   const handleInputChange =(event)=>{
-
-        sethola({
-            ...hola,
-            [event.target.name]:event.target.value
-        })
-
-   }
-console.log(handleInputChange)
-
-
+    const {handleInputChange, handleRegistro, handleCancele, registro, data}= useRegistro()
 
 
     return (<Fragment>
 
+        <button onClick={handleRegistro} className="btn-registro">Matricular</button>
+        {registro &&(
+
+<section className="section-form">
+            <button onClick={handleCancele} className="btn-cancele">X</button>
+        <h2>Registro de Matricula</h2>
         <form className="formulario">
-            <h2>Registro de Matricula</h2>
             
+            <div className="input-nombre">
             <input
                 type='text' 
                 id='id1'   
@@ -46,6 +33,9 @@ console.log(handleInputChange)
                 onChange={handleInputChange}
                 name="apellidos"
             />
+            </div>
+
+            <div className="input-nombre">
             <input
                 type='number' 
                 id='id3'   
@@ -62,8 +52,8 @@ console.log(handleInputChange)
                 className="form-control"
                 onChange={handleInputChange}
                 name="registroId"
-            />
-
+            /></div>
+            <div className="input-nombre">
             <input
                 type='date' 
                 id='id5'   
@@ -80,7 +70,7 @@ console.log(handleInputChange)
                 <option value='informatica'>BTP en Informatica</option>
                 <option value='ciencias'>BTP en Ciencias y Letras</option>
                 <option value='turismo'>BTP en Turismo</option>
-            </select>
+            </select></div>
 
             <input
             id="id7"
@@ -90,6 +80,10 @@ console.log(handleInputChange)
             />
 
             </form>
+            </section>
+
+        )}
+        
             </Fragment>
    
     )

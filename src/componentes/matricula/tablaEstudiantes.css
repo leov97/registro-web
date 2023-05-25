@@ -1,0 +1,18 @@
+.Container{
+    height:100vh;
+    right: 100vw;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+   
+}
+
+.tab-registro{
+    position: relative;
+    color: black;
+    width: 55rem;
+    height: 30rem;
+    position: absolute;
+}
